@@ -1,0 +1,17 @@
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\TwitchAnimals.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\TwitchAnimals.pdb
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\0Harmony.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\Assembly-CSharp.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\UnityEngine.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\TextMeshPro-1.0.55.56.0b11.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\Assembly-CSharp-firstpass.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\NAudio.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\NVorbis.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\bin\Release\UnityEngine.UI.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Release\TwitchAnimals.csproj.CoreCompileInputs.cache
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Release\TwitchAnimals.csproj.CopyComplete
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Release\TwitchAnimals.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Release\TwitchAnimals.pdb
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Assemblies\TwitchAnimals.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Assemblies\TwitchAnimals.pdb
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Release\TwitchAnimals.csprojAssemblyReference.cache

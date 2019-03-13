@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>twitchanimals</name>
+  <author>the_heye</author>
+  <url>https://github.com/heye/</url>
+  <targetVersion>1.0.2096</targetVersion>
+  <description>Adds names for wild animals. Names are taken form Bonjwas Twitch chat.</description>
+</ModMetaData>

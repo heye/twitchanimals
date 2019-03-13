@@ -1,0 +1,7 @@
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Assemblies\TwitchAnimals.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Assemblies\TwitchAnimals.pdb
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Debug\TwitchAnimals.csproj.CoreCompileInputs.cache
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Debug\TwitchAnimals.csproj.CopyComplete
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Debug\TwitchAnimals.dll
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Debug\TwitchAnimals.pdb
+H:\Games\Steam\steamapps\common\RimWorld\Mods\TwitchAnimals\Source\TwitchAnimals\obj\Debug\TwitchAnimals.csprojAssemblyReference.cache
