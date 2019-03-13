@@ -83,7 +83,7 @@ namespace TwitchAnimals {
 
       static private void parseNames() {
          //TODO: verify that this actually creates a copy
-         string copiedNames = ApiNames;
+         string copiedNames = string.Copy(ApiNames);
          //Verse.Log.Message("NEW NAMES LIST");
          int count = 0;
 
@@ -93,7 +93,13 @@ namespace TwitchAnimals {
          }
          newNamePool.Clear();
 
-         using (StringReader reader = new StringReader(copiedNames)) {
+            // get the current names of the pawns and the animals
+            IEnumerable<string> pawns_in_game = from p in Verse.Find.CurrentMap.mapPawns.AllPawnsSpawned
+                                                where !p.RaceProps.Animal && p.Name != null && !p.Name.Numerical
+                                                select p.Name.ToStringFull();
+
+
+            using (StringReader reader = new StringReader(copiedNames)) {
             
             
             string line;
@@ -103,8 +109,15 @@ namespace TwitchAnimals {
                //Verse.Log.Message(line);
                count++;
 
-               //Verse.Log.Message("ADDED " + line);
-               newNamePool.Add(line);
+                    //Verse.Log.Message("ADDED " + line);
+
+                    if (!pawns_in_game.Contains(line))
+                    {
+                        newNamePool.Add(line);
+                    } else {
+                        Verse.Log.Message("already in game" + line);
+                    }
+             
             }
          }
 
