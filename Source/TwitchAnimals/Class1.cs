@@ -46,14 +46,166 @@ namespace TwitchAnimals {
 
          // find the FillTab method of the class RimWorld.ITab_Pawn_Character
 
-         MethodInfo targetmethod = AccessTools.Method(typeof(RimWorld.WildAnimalSpawner), "WildAnimalSpawnerTick");
 
+         MethodInfo wildAnimalSpawnerTickMeth = AccessTools.Method(typeof(RimWorld.WildAnimalSpawner), "WildAnimalSpawnerTick");
          // find the static method to call before (i.e. Prefix) the targetmethod
-         HarmonyMethod prefixmethod = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("WildAnimalSpawnerTick_Prefix"));
-
+         HarmonyMethod wildAnimalSpawnerTickMethPrefix = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("WildAnimalSpawnerTick_Prefix"));
          // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod (i.e. null)
-         harmony.Patch(targetmethod, prefixmethod, null);
+         harmony.Patch(wildAnimalSpawnerTickMeth, wildAnimalSpawnerTickMethPrefix, null);
+
+         //WORKING overload pawn creation
+         /*MethodBase pawnConstructorMeth = AccessTools.Constructor(typeof(Verse.Pawn));
+         HarmonyMethod pawnConstructorMethPostfix = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("Pawn_Postfix"));
+         HarmonyMethod pawnConstructorMethPrefix = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("Pawn_Prefix"));
+         harmony.Patch(pawnConstructorMeth, pawnConstructorMethPrefix, pawnConstructorMethPostfix);
+         */
+
+         
+
+         //overlaod name triple creation
+         //TODO: inline array 
+         //overload constructor with specific parameters (3x string)
+         /*MethodBase nameConstructorMeth = AccessTools.Constructor(typeof(Verse.NameTriple), new System.Type[]{ typeof(string), typeof(string), typeof(string) });
+         if (nameConstructorMeth == null) {
+            ///TODO: why is this neccessary?
+            return;
+         }
+         HarmonyMethod nameConstructorMethPostfix = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("NameTriple_Postfix"));
+         harmony.Patch(nameConstructorMeth, null, nameConstructorMethPostfix);*/
+
+
+         //overlaod name bank
+         //TODO: inline array 
+         //overload constructor with specific parameters (3x string)
+         /*MethodInfo nameBankMeth = AccessTools.Method(typeof(RimWorld.NameBank), "GetName");
+         if (nameBankMeth == null) {
+            return;
+         }
+         HarmonyMethod nameBankMethPostfix = new HarmonyMethod(typeof(TwitchAnimals.HarmonyPatches).GetMethod("NameBank_Postfix"));
+         harmony.Patch(nameBankMeth, null, nameBankMethPostfix);*/
+
       }
+
+      /*public static void NameBank_Postfix(RimWorld.NameBank __instance, PawnNameSlot slot, Gender gender, bool checkIfAlreadyUsed, ref string __result) {
+         Verse.Log.Message("NameBank_Postfix " + __result);
+         if(slot == PawnNameSlot.First) {
+            __result = "Twitch";
+            return;
+         }
+         if(slot != PawnNameSlot.Nick) {
+            return;
+         }
+
+
+         if(__result != null) {
+            Verse.Log.Message(__result);
+         }
+         try {
+            if (__instance == null) {
+               return;
+            }
+            Verse.Log.Message(__instance.ToString());
+
+            string name = getNameFromList();
+            if (name == null || name.Length == 0) {
+               Verse.Log.Message("DIRECT NAMING - NO NAMES");
+               return;
+            }
+
+            Verse.Log.Message("DIRECT NAMING - GIVE: " + name);
+            __result = name;
+         }
+         catch (System.Exception e) {
+            Verse.Log.Message("DIRECT NAMING EXCEPTION " + e.ToString());
+         }
+      }*/
+
+   
+
+      /*public static void NameTriple_Postfix(Verse.NameTriple __instance, string first, string nick, string last/*, ref Pawn __result*) {
+         if (__instance == null) {
+            Verse.Log.Message("NameTriple_Postfix no instance");
+            return;
+         }
+         if(first != null && first == "Twitch") {
+            Verse.Log.Message("ALREADY Twitch");
+            return;
+         }
+         Verse.Log.Message("NameTriple_Postfix");
+         try {
+            if (__instance == null) {
+               return;
+            }
+            Verse.Log.Message(__instance.ToString());
+
+            string name = getNameFromList();
+            if (name == null || name.Length == 0) {
+               Verse.Log.Message("DIRECT NAMING - NO NAMES");
+               return;
+            }
+
+            Verse.Log.Message("2");
+
+            Faction local_faction = localFaction();
+
+            Verse.Log.Message("3");
+            if (local_faction == null) {
+               Verse.Log.Message("DIRECT NAMING - FACTION NULL");
+               return;
+            }
+            Verse.Log.Message("4");
+
+            Verse.NameTriple nametriple = new Verse.NameTriple("Twitch", name, "#" + name);
+            Verse.Log.Message("DIRECT NAMING - GIVE: " + nametriple.ToString());
+            __instance = nametriple;
+         }
+         catch (System.Exception e) {
+            Verse.Log.Message("DIRECT NAMING EXCEPTION " + e.ToString());
+         }
+      }*/
+
+
+      /*public static void Pawn_Prefix() {
+         Verse.Log.Message("Pawn_Prefix");
+      }
+
+      public static void Pawn_Postfix(Pawn __instance/*, ref Pawn __result*) {
+         if(__instance == null) {
+            Verse.Log.Message("Pawn_Postfix no instance");
+            return;
+         }
+         Verse.Log.Message("Pawn_Postfix");
+         try {
+            if (__instance.Name != null) {
+               Verse.Log.Message(__instance.Name.ToString());
+            }
+            Verse.Log.Message("1");
+
+            string name = getNameFromList();
+            if(name == null || name.Length == 0) {
+               Verse.Log.Message("DIRECT NAMING - NO NAMES");
+               return;
+            }
+
+            Verse.Log.Message("2");
+
+            Faction local_faction = localFaction();
+
+            Verse.Log.Message("3");
+            if (local_faction == null) {
+               Verse.Log.Message("DIRECT NAMING - FACTION NULL");
+               return;
+            }
+            Verse.Log.Message("4");
+
+            Verse.NameTriple nametriple = new Verse.NameTriple("Twitch", name, "#" + name);
+            Verse.Log.Message("DIRECT NAMING - GIVE: " + nametriple.ToString());
+            __instance.Name = nametriple;
+         }
+         catch (System.Exception e) {
+            Verse.Log.Message("DIRECT NAMING EXCEPTION " + e.ToString());
+         }
+      }*/
 
 
       static private void checkApiNames() {
@@ -172,6 +324,7 @@ namespace TwitchAnimals {
 
       static private void nameAnimals() {
 
+
          //get all pawns on the map that are wild animals
          IEnumerable<Pawn> pawns = from p in Verse.Find.CurrentMap.mapPawns.AllPawnsSpawned
                                    where p.RaceProps.Animal &&
@@ -221,9 +374,10 @@ namespace TwitchAnimals {
       } // NAME ANIMALS END
 
 
-      static private void nameOther() {
-         Pawn colonist = null;
+      static private Faction localFaction() {
          Faction local_faction = null;
+         Pawn colonist = null;
+
          IEnumerable<Pawn> colonist_pawns = from p in Verse.Find.CurrentMap.mapPawns.FreeColonistsAndPrisoners
                                             where !p.RaceProps.Animal && p.Name != null && !p.Name.Numerical
                                             select p;
@@ -240,6 +394,13 @@ namespace TwitchAnimals {
                break;
             }
          }
+
+         return local_faction;
+      }
+
+      static private void nameOther() {
+         Faction local_faction = localFaction();
+
          if(local_faction == null) {
             Verse.Log.Message("FACTION null");
             return;
@@ -260,9 +421,10 @@ namespace TwitchAnimals {
                      return;
                   }
 
-                  Verse.Log.Message("GIVE NAME (OTHER): " + name);
-                  Verse.NameTriple nametriple = new Verse.NameTriple("Twitch", name, "");
+                  Verse.NameTriple nametriple = new Verse.NameTriple("Twitch", name, "#" + name);
+                  Verse.Log.Message("GIVE NAME (OTHER): " + nametriple.ToString());
                   others_pawns.ElementAt(i).Name = nametriple;
+                  //Verse.Log.Message("TITLE: " + others_pawns.ElementAt(i).story.adul);
                }
             }
             catch (System.Exception e) {
