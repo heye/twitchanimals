@@ -157,7 +157,7 @@ namespace TwitchAnimals {
 
       static private void pullNames() {
          
-         var request = (HttpWebRequest)WebRequest.Create("http://116.203.5.199/bonjwa/");
+         var request = (HttpWebRequest)WebRequest.Create("http://rimworld.me/bonjwa/");
          var response = (HttpWebResponse)request.GetResponse();
          var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
@@ -270,7 +270,6 @@ namespace TwitchAnimals {
             }
             
          }
-         RimWorld.TraitDefOf.drug
 
          //rename other pawns
          /*for (int i = 0; i < others_pawns.Count(); i++) {
